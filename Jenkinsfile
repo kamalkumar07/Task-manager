@@ -16,27 +16,27 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t task-manager .'
+                bat 'docker build -t task-manager .'
             }
         }
 
         stage('Run Docker') {
             steps {
-                sh 'docker stop task-manager || true'
-                sh 'docker rm task-manager || true'
-                sh 'docker run -d -p 8080:8080 --name task-manager task-manager'
+                bat 'docker stop task-manager || exit 0'
+                bat 'docker rm task-manager || exit 0'
+                bat 'docker run -d -p 8080:8080 --name task-manager task-manager'
             }
         }
     }
