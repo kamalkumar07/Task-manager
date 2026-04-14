@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/kamalkumar07/Task-manager.git'
+                git branch: 'main', url: 'https://github.com/kamalkumar07/Task-manager.git'
             }
         }
 
