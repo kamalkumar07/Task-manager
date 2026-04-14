@@ -25,8 +25,6 @@ pipeline {
                 echo 'No tests available, skipping...'
             }
         }
-            }
-        }
 
         stage('Docker Build') {
             steps {
@@ -41,5 +39,6 @@ pipeline {
                 bat 'docker run -d -p 8080:8080 --name task-manager task-manager'
             }
         }
+
     }
 }
