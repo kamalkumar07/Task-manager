@@ -36,7 +36,7 @@ pipeline {
             steps {
                 bat 'docker stop task-manager || exit 0'
                 bat 'docker rm task-manager || exit 0'
-                bat 'docker run -d -p 8080:8080 --name task-manager task-manager'
+                bat 'docker run -d -p 9090:8080 --name task-manager task-manager'
             }
         }
 
